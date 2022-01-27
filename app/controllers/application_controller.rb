@@ -192,7 +192,7 @@ class ApplicationController < ActionController::Base
   ## Sets necessary variables when rendering ads
 	def set_ads
 		# Update to FALSE to hide advertisements
-		@display_ads = true
+		@display_ads = false
 
 		# Advertisement: Custom Format
 		@custom_ad = """
