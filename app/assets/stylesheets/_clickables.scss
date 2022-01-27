@@ -1,0 +1,14 @@
+// BUTTON AND LINKS DEFAULT
+button:hover, button:focus, input[type=submit]:hover, input[type=submit]:focus {
+	cursor : pointer;
+	filter : brightness(90%);
+}
+
+a:hover, a:focus {
+	cursor  : pointer;
+	opacity : 0.8;
+}
+
+button:disabled {
+	cursor : not-allowed !important;
+}

@@ -1,0 +1,61 @@
+<main class="index">
+	<h1 class="logo primary">Twitter Memories</h1>
+	<p class="desc">Look back and share your tweets from months or years ago—memories on twitter.</p>
+	<div class="cta">
+		<button onclick="window.location.href='/auth/twitter';"><i class="fab fa-twitter"></i> Continue with Twitter</button>
+		<a href="https://twitter.com/intent/tweet?text=%23TwitterMemories%2C%20check%20it%20out%20now!%20Look%20back%20and%20share%20your%20tweets%20from%20months%20or%20years%20ago.&url=https%3A%2F%2Fthrowback.cc" target="_blank">Invite Friends <i class="fas fa-user-plus"></i></a>
+	</div>
+	<% if @display_ads %>
+		<div class="ads ad-box">
+			<p class="label">Ads</p>
+			<%= @custom_ad %>
+		</div>
+	<% else %>
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+		<br class="mobile-br">
+	<% end %>
+
+	<!-- User Tracker -->
+	<div class="section">
+		<div class="box">
+			<p class="text"><span class="bolder"><%= number_with_delimiter(@user_count) %> users</span><br> have already enabled twitter memories.</p>
+		</div>
+	</div>
+</main>
+
+<!-- Authentication Notice -->
+<% if params[:auth].present? && params[:auth] == 'session_expired' %>
+<p class="notice-float">Session expired, please try again.</p>
+<% end %>
+
+<!-- Messenger Chat Plugin -->
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat"></div>
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "106921248272925");
+  chatbox.setAttribute("attribution", "biz_inbox");
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v10.0'
+    });
+  };
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>

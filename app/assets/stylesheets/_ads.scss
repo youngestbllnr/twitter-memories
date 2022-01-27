@@ -1,0 +1,42 @@
+.ads {
+    text-align: center;
+}
+
+.ads .label {
+    display: block;
+    overflow: hidden;
+    margin: 0 0 8px;
+    opacity: .72;
+    font-size: 8pt;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.ads iframe {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+    //border-radius : 12px;
+}
+
+#custom-ad a:hover,
+#custom-ad a:focus {
+    opacity: 1;
+    filter: brightness(80%);
+}
+
+#custom-ad img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+#custom-meme a:hover,
+#custom-meme a:focus {
+    opacity: 1;
+    filter: brightness(80%);
+}
+
+#custom-meme img {
+    width: 100%;
+    border-radius: 12px;
+}

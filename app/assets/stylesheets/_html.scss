@@ -1,0 +1,20 @@
+//BODY
+body {
+	overflow-x : hidden;
+	margin     : 0;
+}
+
+//SMOOTH SCROLL
+html {
+	scroll-behavior : smooth;
+}
+
+//EMPTY OPTION
+option[value=""] {
+	display : none;
+}
+
+//MAIN
+main {
+	position : relative;
+}

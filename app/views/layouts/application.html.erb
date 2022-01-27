@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Title -->
+		<title><%= content_for?(:title) ? yield(:title) : 'Twitter Memories' %></title>
+		<!-- CSRF -->
+		<%= csrf_meta_tags %>
+    <!-- CSP -->
+    <%= csp_meta_tag %>
+		<!-- Viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Description -->
+		<meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Look back and share your tweets from months or years ago—memories on twitter.' %>">
+		<!-- Keywords -->
+		<meta name="keywords" content="twitter, memories, share, tweets, years, months, ago, #OnThisDay" />
+		<!-- Open Graph -->
+		<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : 'Twitter Memories' %>">
+		<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : 'Look back and share your tweets from months or years ago—memories on twitter.' %>"/>
+		<meta property="og:image" content='https://twttr-memories.herokuapp.com/twitter-og.png'/>
+		<meta property="og:type" content='website'/>
+		<meta property="og:url" content='<%= request.original_url %>'/>
+		<!-- Icons -->
+		<link rel="shortcut icon" href="/favicon.ico"/>
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+		<!-- Stylesheets -->
+		<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "true" %>
+		<%= stylesheet_link_tag "/fontawesome/web/css/all.css", media: "all", "data-turbolinks-track" => "true" %>
+		<!-- Javascript -->
+		<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-KNNXJRX1XS"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-KNNXJRX1XS');
+		</script>
+	<body>
+		<p class="legal-notice">This website is not officially affiliated with Twitter.<br>
+			<a href="/terms-of-use.pdf" style="color:#00acee;">Terms</a>
+			<a href="/privacy-policy.pdf" style="color:#00acee;">Privacy</a>
+			<a href="#about" style="color:#00acee;">About</a>
+			<a href="#contact" style="color:#00acee;">Contact</a>
+		</p>
+		<div class="desktop-background"><div class="overlay"></div></div>
+		<div class="limit">
+			<%= yield %>
+			<!-- FLASH NOTICE -->
+			<% if flash.present? %>
+			<% flash.each do |key, value| %>
+			<p class="notice-float"><%= value %></p>
+			<% end %>
+			<% end %>
+		</div>
+	</body>
+</html>

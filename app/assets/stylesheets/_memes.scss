@@ -1,0 +1,10 @@
+#custom-meme a:hover,
+#custom-meme a:focus {
+    opacity: 1;
+    filter: brightness(80%);
+}
+
+#custom-meme img {
+    width: 100%;
+    border-radius: 12px;
+}

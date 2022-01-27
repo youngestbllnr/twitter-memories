@@ -1,0 +1,76 @@
+<% if @memories.count == 0 %>
+<% content_for :title, "@#{ @user.name } / Twitter Memories" %>
+<% else %>
+<% content_for :title, "(#{ @memories.count }) @#{ @user.name } / Twitter Memories" %>
+<% end %>
+<main class="dashboard">
+	<section class="header">
+		<p class="logo">Twitter Memories</p>
+	</section>
+	<section class="profile">
+		<div class="avatar" style="background: url('<%= @user.avatar %>') center center no-repeat; background-size: cover;"></div>
+		<p class="name primary">@<%= @user.name %></p>
+		<p class="count"><span class="value"><%= @memories.count %></span> <span class="label"><% if @memories.count == 1 %>memory<% else %>memories<% end %> #OnThisDay</span></p>
+	</section>
+	<section class="memories">
+		<% @memories.each_with_index do |memory, index| %>
+		<% if @display_ads && index != 0 && (index + 1) % 4 == 0 %>
+			<div class="ads ad-box">
+				<p class="label">Ads</p>
+				<%= @custom_ad %>
+			</div>
+			<br>
+		<% end %>
+		<div class="memory">
+			<!-- MONTHS/YEARS AGO -->
+			<p class="ago"><i class="fal fa-clock"></i> <%= dashboard_years_ago(memory) %></p>
+			<!-- SHARE BUTTON -->
+			<button class="share-btn" onclick="share('<%= memory.uri %>')">Share <i class="fas fa-share-alt"></i></button>
+			<!-- EMBEDDED TWEET -->
+			<blockquote class="twitter-tweet">
+				<a class="box" href="<%= memory.uri %>" target="_blank">
+					<p class="text" lang="en" dir="ltr"><%= memory.text.split("https://t.co/")[0] %></p>
+				</a>
+				<p class="note" lang="en" dir="ltr"><i class="fal fa-info-circle"></i> Make your account public to view embedded tweets properly. <a class="link" href="<%= memory.uri %>" target="_blank">View Tweet</a></p>
+			</blockquote>
+		</div>
+		<br>
+		<% end %>
+		<% if @display_ads && @memories.count < 4 && @memories.count != 0 %>
+			<div class="ads ad-box">
+				<p class="label">Ads</p>
+				<%= @custom_ad %>
+			</div>
+			<br>
+		<% end %>
+		<% if @memories.count == 0 %>
+			<div class="memory">
+				<p class="text" lang="en" dir="ltr"><i class="fal fa-info-circle"></i> Check back tomorrow to see more of your memories!</p>
+				<p class="note" lang="en" dir="ltr">You didn't post any tweets #OnThisDay 1 year ago.</p>
+			</div>
+			<br>
+			<% if @display_ads %>
+				<div class="ads ad-box">
+					<p class="label">Ads</p>
+					<%= @custom_ad %>
+				</div>
+			<% end %>
+		<% end %>
+	</section>
+	<section class="settings">
+		<a href="https://twitter.com/intent/tweet?text=%23TwitterMemories%2C%20check%20it%20out%20now!%20Look%20back%20and%20share%20your%20tweets%20from%20months%20or%20years%20ago.&url=https%3A%2F%2Fthrowback.cc" target="_blank">Invite Friends <i class="fas fa-user-plus"></i></a>
+		<% if @user.automated %>
+		<a href="/disable" onclick="disable()">Disable #OnThisDay Tweets</a>
+		<% else %>
+		<a href="/enable">Enable #OnThisDay Tweets</a>
+		<% end %>
+		<a href="https://twitter.com/TwtMemories" id="follow" target="_blank">Follow @TwtMemories</a>
+		<a href="/auth/signout">Sign Out</a>
+	</section>
+</main>
+<script type="text/javascript">
+	function share(url) {
+		window.open().location.href = "/share?url=" + encodeURIComponent(url);
+	}
+</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

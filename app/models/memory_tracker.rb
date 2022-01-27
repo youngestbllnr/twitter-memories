@@ -1,0 +1,2 @@
+class MemoryTracker < ApplicationRecord
+end

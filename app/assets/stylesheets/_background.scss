@@ -1,0 +1,26 @@
+//BACKGROUND
+.desktop-background {
+	position        : fixed;
+	top             : 0;
+	left            : 0;
+	z-index         : 0;
+
+	height          : 100%;
+	width           : 100%;
+
+	opacity         : 0.16;
+	background      : url('/desktop-background.jpeg') center center no-repeat;
+	background-size : cover;
+}
+
+.desktop-background .overlay {
+	position   : absolute;
+	top        : 0;
+	left       : 0;
+
+	height     : 100%;
+	width      : 100%;
+
+	opacity    : 0.72;
+	background : #4a86aa;
+}
