@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 		"#OnThisDay", 
 		"automatically checked by", 
 		"Today stats:", 
-		"Ask me anything!"
+		"Ask me anything!",
+		"#Throwback"
 	]
 
   ## Checks if tweet contains items on the blacklist
@@ -181,7 +182,7 @@ class ApplicationController < ActionController::Base
 
   ## Returns text template when sharing memories
 	def share_text(unit, value)
-		"%23OnThisDay%2C%20#{ value }%20#{ unit }(s)%20ago%E2%80%94twitter%20memories%20via%20throwback.cc"
+		"📅%20%23Throwback%20from%20#{ value }%20#{ unit }(s)%20ago%E2%80%94twitter%20memories%20via%20throwback.cc"
 	end
 	
 	## Redirects link to twitter sharer (with template)

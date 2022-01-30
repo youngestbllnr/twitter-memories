@@ -48,7 +48,7 @@ class MainController < ApplicationController
 	def enable
 		@user.update_attribute(:automated, true)
 
-		flash[:notice] = "Automated #OnThisDay tweets has been enabed."
+		flash[:notice] = "Automated #Throwback tweets has been enabled."
 		redirect_to dashboard_path
 	end
 
@@ -56,7 +56,7 @@ class MainController < ApplicationController
 	def disable
 		@user.update_attribute(:automated, false)
 
-		flash[:notice] = "Automated #OnThisDay tweets has been disabed."
+		flash[:notice] = "Automated #Throwback tweets has been disabled."
 		redirect_to dashboard_path
 	end
 end

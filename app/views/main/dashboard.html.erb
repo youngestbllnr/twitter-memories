@@ -10,7 +10,7 @@
 	<section class="profile">
 		<div class="avatar" style="background: url('<%= @user.avatar %>') center center no-repeat; background-size: cover;"></div>
 		<p class="name primary">@<%= @user.name %></p>
-		<p class="count"><span class="value"><%= @memories.count %></span> <span class="label"><% if @memories.count == 1 %>memory<% else %>memories<% end %> #OnThisDay</span></p>
+		<p class="count"><span class="value"><%= @memories.count %></span> <span class="label"><% if @memories.count == 1 %>memory<% else %>memories<% end %> today</span></p>
 	</section>
 	<section class="memories">
 		<% @memories.each_with_index do |memory, index| %>
@@ -46,7 +46,7 @@
 		<% if @memories.count == 0 %>
 			<div class="memory">
 				<p class="text" lang="en" dir="ltr"><i class="fal fa-info-circle"></i> Check back tomorrow to see more of your memories!</p>
-				<p class="note" lang="en" dir="ltr">You didn't post any tweets #OnThisDay 1 year ago.</p>
+				<p class="note" lang="en" dir="ltr">You didn't post any tweets on this day 1 year ago.</p>
 			</div>
 			<br>
 			<% if @display_ads %>
@@ -60,9 +60,9 @@
 	<section class="settings">
 		<a href="https://twitter.com/intent/tweet?text=%23TwitterMemories%2C%20check%20it%20out%20now!%20Look%20back%20and%20share%20your%20tweets%20from%20months%20or%20years%20ago.&url=https%3A%2F%2Fthrowback.cc" target="_blank">Invite Friends <i class="fas fa-user-plus"></i></a>
 		<% if @user.automated %>
-		<a href="/disable" onclick="disable()">Disable #OnThisDay Tweets</a>
+		<a href="/disable" onclick="disable()">Disable #Throwback Tweets</a>
 		<% else %>
-		<a href="/enable">Enable #OnThisDay Tweets</a>
+		<a href="/enable">Enable #Throwback Tweets</a>
 		<% end %>
 		<a href="https://twitter.com/TwtMemories" id="follow" target="_blank">Follow @TwtMemories</a>
 		<a href="/auth/signout">Sign Out</a>

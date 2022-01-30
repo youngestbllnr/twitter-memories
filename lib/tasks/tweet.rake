@@ -51,7 +51,7 @@ namespace :twitter do
         tweets.each do |tweet|
           if (tweet.created_at + 8.hours).strftime("%m-%d") == Date.current.strftime("%m-%d")
             unless (tweet.created_at + 8.hours).strftime("%Y") == Date.current.strftime("%Y")
-              unless (tweet.text.include? "#OnThisDay") || (tweet.text.include? "automatically checked by") || (tweet.text.include? "Today stats:") || (tweet.text.include? ".com") || (tweet.text.include? "Ask me anything!")
+              unless (tweet.text.include? "#OnThisDay") || (tweet.text.include? "automatically checked by") || (tweet.text.include? "Today stats:") || (tweet.text.include? ".com") || (tweet.text.include? "Ask me anything!") || (tweet.text.include? "#Throwback")
                 memories.push(tweet)
               end
             end
@@ -63,7 +63,7 @@ namespace :twitter do
           memory = memories.sample
           years_ago = Date.current.strftime("%Y").to_i - (memory.created_at + 8.hours).strftime("%Y").to_i
 
-          client.update("🌠 #OnThisDay, #{ years_ago } year(s) ago—twitter memories via throwback.cc", attachment_url: memory.uri)
+          client.update("📅 #Throwback from #{ years_ago } year(s) ago—twitter memories via throwback.cc", attachment_url: memory.uri)
         end
         
         # Logs
