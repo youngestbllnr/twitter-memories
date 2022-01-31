@@ -63,7 +63,7 @@ namespace :twitter do
           memory = memories.sample
           years_ago = Date.current.strftime("%Y").to_i - (memory.created_at + 8.hours).strftime("%Y").to_i
 
-          client.update("📅 #Throwback from #{ years_ago } year(s) ago—twitter memories via throwback.cc", attachment_url: memory.uri)
+          client.update("💫 #Throwback from #{ years_ago } year(s) ago—twitter memories via throwback.cc", attachment_url: memory.uri)
         end
         
         # Logs

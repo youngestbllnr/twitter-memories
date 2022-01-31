@@ -182,7 +182,7 @@ class ApplicationController < ActionController::Base
 
   ## Returns text template when sharing memories
 	def share_text(unit, value)
-		"📅%20%23Throwback%20from%20#{ value }%20#{ unit }(s)%20ago%E2%80%94twitter%20memories%20via%20throwback.cc"
+		"💫%20%23Throwback%20from%20#{ value }%20#{ unit }(s)%20ago%E2%80%94twitter%20memories%20via%20throwback.cc"
 	end
 	
 	## Redirects link to twitter sharer (with template)
