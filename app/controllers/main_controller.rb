@@ -4,9 +4,7 @@ class MainController < ApplicationController
 	before_action :set_ads, only: [:index, :dashboard]
 
   ## Landing Page
-	def index
-    @user_count = UserTracker.find_by(context: 'count').data
-	end
+	def index; end
 
 	## Dashboard
 	def dashboard

@@ -1,2 +1,0 @@
-class UserTracker < ApplicationRecord
-end

@@ -28,7 +28,7 @@
 	<!-- User Tracker -->
 	<div class="section">
 		<div class="box">
-			<p class="text"><span class="bolder"><%= number_with_delimiter(@user_count) %> users</span><br> have already enabled twitter memories.</p>
+			<p class="text"><span class="bolder"><%= number_with_delimiter(User.count) %> users</span><br> have already enabled twitter memories.</p>
 		</div>
 	</div>
 </main>
